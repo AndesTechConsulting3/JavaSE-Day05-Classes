@@ -9,10 +9,22 @@ class A2 implements Cloneable
 
     B2 b2;
 
+//    @Override
+//protected Object clone() throws CloneNotSupportedException {
+//    return super.clone();
+//}
+
+
     @Override
     protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
+
+        A2 o = new A2(data);
+        B2 o2 = new B2(); o2.data = b2.data;
+        o.b2 = o2;
+
+        return o;
     }
+
 }
 
 
@@ -33,6 +45,13 @@ public class AppObject {
 
         System.out.println("---------------------");
 
+        System.out.println("a data=" + a.data + ",a b2 data=" + a.b2.data);
+        System.out.println("a2 data=" + a2.data + ",a2 b2 data=" + a2.b2.data);
+
+        System.out.println("---------------------");
+
+        a2.data = 1000;
+        a2.b2.data = 2000;
         System.out.println("a data=" + a.data + ",a b2 data=" + a.b2.data);
         System.out.println("a2 data=" + a2.data + ",a2 b2 data=" + a2.b2.data);
 

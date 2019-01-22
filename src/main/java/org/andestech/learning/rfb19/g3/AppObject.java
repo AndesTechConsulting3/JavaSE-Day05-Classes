@@ -14,7 +14,6 @@ class A2 implements Cloneable
 //    return super.clone();
 //}
 
-
     @Override
     protected Object clone() throws CloneNotSupportedException {
 
